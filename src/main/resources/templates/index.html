@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Committee on Agriculture</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 0;
+            text-align: center;
+        }
+
+        .header a {
+            color: yellow;
+            text-decoration: none;
+        }
+
+        .container-fluid {
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #f8f8f8;
+            border: none;
+            margin-bottom: 0;
+        }
+
+        .navbar-brand {
+            padding: 10px 20px;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .navbar-nav {
+            margin: 10px;
+        }
+
+        .navbar-nav>li>a {
+            padding: 15px 20px;
+            color: #333;
+        }
+
+        .jumbotron {
+            background-color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .jumbotron h1 {
+            font-size: 3em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .jumbotron .btn-primary {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+            color: white;
+            padding: 10px 25px;
+            font-size: 1.2em;
+        }
+
+        .container {
+            max-width: 1200px;
+            padding: 40px 0;
+        }
+
+        .row {
+            display: flex; /* Enable flexbox for the row */
+            flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
+        }
+
+        .col-md-6 {
+            width: 50%; /* Each column takes 50% width on medium screens and up */
+            padding: 0 15px; /* Add some padding around the columns */
+            box-sizing: border-box; /* Include padding in the element's total width and height */
+        }
+
+        .image-container {
+            position: relative;
+        }
+
+        .date-block {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #555;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+        }
+
+        .month {
+            font-size: 1.2em;
+        }
+
+        .day {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .text-block {
+            margin-bottom: 20px;
+        }
+
+        .text-block h3 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .text-block p {
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        .footer {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsive adjustments (example) */
+        @media (max-width: 768px) {
+            .col-md-6 {
+                width: 100%; /* Stack columns vertically on smaller screens */
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    outbreak report <a href="#">CLICK HERE</a>
+</div>
+
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img th:src="@{images/logo.png}" style="border-radius: 20px; width: 100px; height: 55px; margin-bottom: 10px;" alt="Logo">
+            </a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/about">About</a></li>
+            <li><a href="/news">News</a></li>
+            <li><a href="/Farms">Market</a></li>
+            <li><a href="/Market">Research</a></li>
+            <li><a href="/Login">Login</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="jumbotron" style="position: relative; overflow: hidden; height: 400px; /* Adjust height as needed */">
+    <video autoplay muted loop style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+        <source src="https://youtu.be/gzcKzoeqxNo" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div style="position: relative; z-index: 1; text-align: center; color: white; padding: 50px 0;">
+        <h1>Organic Farming Remedies</h1>
+        <p><a class="btn btn-primary btn-lg" href="#">GET STARTED</a></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="image-container">
+                <div class="date-block">
+                    <span class="month">FEB</span><br>
+                    <span class="day">13</span>
+                </div>
+                <img src="path/to/your/image2.jpg" alt="Image" class="img-responsive" style="width: 100%; height: auto;">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="text-block">
+                <h3>OPENING STATEMENT: <br> "EXAMINING THE ECONOMIC CRISIS IN FARM COUNTRY"</h3>
+                <p>FEB 11, 2025 | OPENING STATEMENTS</p>
+            </div>
+            <div class="text-block">
+                <h3>THOMPSON OPENING STATEMENT DURING 119TH ORGANIZATIONAL MEETING</h3>
+                <p>JAN 23, 2025 | OPENING STATEMENTS</p>
+            </div>
+            <div class="text-block">
+                <h3>CHAIRMAN THOMPSON ANNOUNCES AGRICULTURE COMMITTEE ROSTER FOR 119TH CONGRESS</h3>
+                <p>DEC 16, 2024 | PRESS RELEASES</p>
+            </div>
+            <div class="text-block">
+                <h3>CHAIRMAN THOMPSON STATEMENT ON <br> CONFIRMATION OF BROOKE ROLLINS TO LEAD AGRICULTURE DEPARTMENT</h3>
+                <p>DEC 16, 2024 | PRESS RELEASES</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2024 House Committee on Agriculture</p>
+</footer>
+
+</body>
+
+</html>
