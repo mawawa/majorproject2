@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - WAW Organics</title>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+</head>
+
+<body>
+
+<nav class=" animate__animated animate__backInDown navbar-dark  navbar  navbar-expand-lg" style="background-color: rgba(0, 30, 0, 0.5); ">
+
+    <div class="collapse navbar-collapse" id="navbarText">
+        <video autoplay muted loop style=" margin: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+            <source th:src="@{/videos/home.mp4}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <a href="#">
+            <img th:src="@{images/logo.png}" style="border-radius: 20px; width: 100px; height: 55px; margin: 10px;" alt="Logo"/>
+        </a>
+        <ul class="navbar-nav" style="margin: left;">
+            <li  class="nav-item">
+
+            </li>
+            <li  class="nav-item"><a  class="nav-link " href="/index">Home</a></li>
+            <li  class="nav-item"><a  class="nav-link" href="/market">Market</a></li>
+            <li  class="nav-item"><a  class="nav-link" href="/research">Research</a></li>
+            <li  class="nav-item"><a  class="nav-link" href="/get-outbreaks">Outbreaks</a></li>
+            <li  class="nav-item"><a  class="nav-link active" href="/about-us">About</a></li>
+            <li  class="nav-item"><a  class="nav-link" href="/login">Login</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-3" style="margin: auto;">
+    <img th:src="@{images/logo.png}" style="border-radius: 20px;width: 50%;"
+         alt="Logo">
+
+</div>
+
+<div class="container about-section mt-3">
+    <h2>About WAW Organics</h2>
+
+    <p>At WAW Organic, we're passionate about bringing you the finest organic products, cultivated with care and respect
+        for the environment. Founded on the principle of "Nature's Way," we believe in harnessing the power of nature to
+        provide wholesome, healthy products that nourish both body and soul.</p>
+
+    <p>Our journey began with a simple idea: to make organic living accessible to everyone. We understand the importance
+        of knowing where your food comes from and how it's grown. That's why we work closely with local farmers and
+        producers who share our commitment to sustainable agriculture and ethical practices.</p>
+
+    <p>We believe that organic farming is not just a trend, but a way of life. It's about preserving the integrity of
+        the land, protecting biodiversity, and ensuring a healthy future for generations to come. We're dedicated to
+        supporting these practices and bringing you products that are as good for the planet as they are for you.</p>
+
+    <p>We're more than just a company; we're a community. We believe in transparency and building strong relationships
+        with our customers. We want you to know the story behind our products, from the seed to your table. We're always
+        striving to improve and innovate, seeking out new ways to bring you the best organic products the world has to
+        offer.</p>
+
+
+    <p>We are a team of two passionate individuals, committed to ethical and sustainable practices. We work closely with
+        local farmers and producers to ensure that our products are not only good for you but also good for the
+        environment.</p>
+
+    <div class="row">
+        <div class="col-md-6 team-member">
+            <img src="path/to/your/wandile.jpg" alt="Wandile Matsebula">
+            <h3>Wandile Matsebula</h3>
+            <p>Cell: 78565645</p>
+            <p>Email: wandimats@gmail.com</p>
+        </div>
+        <div class="col-md-6 team-member">
+            <img src="path/to/your/wandile2.jpg" alt="Wandile Shongwe">
+            <h3>Wandile Shongwe</h3>
+            <p>Cell: 78111057</p>
+            <p>Email: nanashongwe@gmail.com</p>
+        </div>
+    </div>
+</div>
+
+<footer  style="height: 40px; background-color: rgba(0, 30, 0, 0.7);
+ display: flex;
+  justify-content: center;
+  align-items: center;">
+    <p style="color: white;margin-top: 20px;">&copy; waw organics 2025</p>
+</footer>
+</body>
+
+</html>

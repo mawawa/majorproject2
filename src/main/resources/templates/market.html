@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market</title>
+  <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+  <script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+</head>
+
+<body>
+
+<nav class=" animate__animated animate__backInDown navbar-dark  navbar  navbar-expand-lg" style="background-color: rgba(0, 30, 0, 0.5); ">
+
+  <div class="collapse navbar-collapse" id="navbarText">
+    <video autoplay muted loop style=" margin: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+      <source th:src="@{/videos/home.mp4}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <a href="#">
+      <img th:src="@{images/logo.png}" style="border-radius: 20px; width: 100px; height: 55px; margin: 10px;" alt="Logo"/>
+    </a>
+    <ul class="navbar-nav" style="margin: left;">
+      <li  class="nav-item">
+
+      </li>
+      <li  class="nav-item"><a  class="nav-link" href="/index">Home</a></li>
+      <li  class="nav-item"><a  class="nav-link active" href="/market">Market</a></li>
+      <li  class="nav-item"><a  class="nav-link" href="/research">Research</a></li>
+      <li  class="nav-item"><a  class="nav-link" href="/get-outbreaks">Outbreaks</a></li>
+      <li  class="nav-item"><a  class="nav-link" href="/about-us">About</a></li>
+      <li  class="nav-item"><a  class="nav-link" href="/login">Login</a></li>
+    </ul>
+  </div>
+</nav>
+</body>
+</html>

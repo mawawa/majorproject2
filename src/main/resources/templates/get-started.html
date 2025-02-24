@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started</title>
+
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<nav class=" animate__animated animate__backInDown navbar-dark  navbar  navbar-expand-lg" style="background-color: rgba(0, 30, 0, 0.5); ">
+
+
+    <div class="collapse navbar-collapse" id="navbarText">
+        <video autoplay muted loop style=" margin: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+            <source th:src="@{/videos/home.mp4}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <a href="#">
+            <img th:src="@{images/logo.png}" style="border-radius: 20px; width: 100px; height: 55px; margin: 10px;"
+                 alt="Logo"/>
+        </a>
+        <ul class="navbar-nav" style="margin: left;">
+            <li class="nav-item">
+
+            </li>
+            <li class="nav-item"><a class="nav-link " href="/index">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/market">Market</a></li>
+            <li class="nav-item"><a class="nav-link" href="/research">Research</a></li>
+            <li class="nav-item"><a class="nav-link" href="/get-outbreaks">Outbreaks</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about-us">About</a></li>
+            <li class="nav-item"><a class="nav-link " href="/login">Login</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row mt-5"  >
+        <div class="col-md-6 " style="width: 45%; padding: 20px;height: 100%;border-radius: 20px; box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5)">
+
+
+            <form th:action="@{/submit-registration}" th:object="${newWawUser}" method="post">
+
+                <div class="ad-container"><h1>Grow a Healthier Future</h1>
+                    <p>Ready to transition to organic? We offer resources, support, and market access to help you
+                        thrive.
+                        <a href="/login">already have and account?</a>
+                </div>
+
+                <label for="firstName">First Name:</label><br>
+
+                <input  class="form-control" th:field="*{firstName}" type="text" id="firstName" name="firstName" required><br><br>
+
+                <label for="lastName">Last Name:</label><br>
+                <input  class="form-control"  th:field="*{lastName}" type="text" id="lastName" name="lastName" required><br><br>
+
+                <label for="role">Role:</label><br>
+                <select th:field="*{role}" class="form-select form-select-lg" aria-label="Default select example"
+                        id="role" name="role" required>
+                    <option value="">Select a Role</option>
+                    <option value="farmer">Farmer</option>
+                    <option value="researcher">Researcher</option>
+                    <option value="official">Officer</option>
+                    <option value="administrator">Administrator</option>
+                </select><br><br>
+
+                <label for="password">Password:</label><br>
+                <input   class="form-control"  th:field="*{password}" type="password" id="password" name="password" required><br><br>
+
+                <label for="contactNumber">Contact Number:</label><br>
+                <input   class="form-control"  th:field="*{contactNumber}" type="tel" id="contactNumber" name="contactNumber" required><br><br>
+
+                <label for="emailAddress">Email Address:</label><br>
+                <input   class="form-control"  th:field="*{emailAddress}" type="email" id="emailAddress" name="emailAddress" required><br><br>
+
+
+                <input  class="btn btn-success form-control"  type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="col-md-6 ms-5 " style="width: 45%: auto;padding: 20px;height: 100%;border-radius: 20px; box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5)">
+            <h2>Organic Farming</h2>
+            <p >
+
+                Join our thriving organic farming community and
+                cultivate a healthier future!
+                Our platform connects farmers, consumers,
+                and researchers, providing valuable resources,
+                networking opportunities, and support for sustainable agriculture.
+                Whether you're a seasoned organic grower or just beginning your journey,
+                registering today gives you access to best practices, a network of like-minded individuals,
+                and the chance to contribute to a better food system. Start growing with us – sign up now!
+            </p>
+
+            <img th:src="@{/images/get-started.jpg}" alt="Image" class="img-responsive"
+                 style=" border-radius: 20px; width: 100%;">
+        </div>
+    </div>
+
+    <div>
+        <p>
+
+        </p>
+    </div>
+
+</div>
+<footer  style="height: 40px; background-color: rgba(0, 30, 0, 0.7);
+ display: flex;
+  justify-content: center;
+  align-items: center;">
+    <p style="color: white;margin-top: 20px;">&copy; waw organics 2025</p>
+</footer>

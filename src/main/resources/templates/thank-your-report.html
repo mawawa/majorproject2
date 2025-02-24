@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outbreak Report</title>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<nav class=" animate__animated animate__backInDown navbar-dark  navbar  navbar-expand-lg" style="background-color: rgba(0, 30, 0, 0.5); ">
+
+    <div class="collapse navbar-collapse" id="navbarText">
+        <video autoplay muted loop style=" margin: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+            <source th:src="@{/videos/home.mp4}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <a href="#">
+            <img th:src="@{images/logo.png}" style="border-radius: 20px; width: 100px; height: 55px; margin: 10px;" alt="Logo"/>
+        </a>
+        <ul class="navbar-nav" style="margin: left;">
+            <li  class="nav-item">
+
+            </li>
+            <li  class="nav-item"><a  class="nav-link " href="/index">Home</a></li>
+            <li  class="nav-item"><a  class="nav-link" href="/market">Market</a></li>
+            <li  class="nav-item"><a  class="nav-link" href="/research">Research</a></li>
+            <li  class="nav-item"><a  class="nav-link  active" href="/get-outbreaks">Outbreaks</a></li>
+            <li  class="nav-item"><a  class="nav-link" href="/about-us">About</a></li>
+            <li  class="nav-item"><a  class="nav-link" href="/login">Login</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container mt-3">
+    <h1>
+        Outbreak Updates
+    </h1>
+    <div class="row" style="width : 100%;" >
+        <div class="col-md-6 " style=" width:48% ;padding: 20px;height: 100%;border-radius: 20px; box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5)">
+
+            <p class="text-justify" style="background-color: rgba(100, 100, 100, 0.1);padding: 10px; border-radius: 20px;">
+                Public health agencies rely on accurate and timely data to
+                make informed decisions about resource allocation, interventions,
+                and public health policies.  Reporting outbreaks contributes to a
+                comprehensive surveillance system that tracks disease trends and helps
+                authorities understand the overall health of the population.
+                This information is crucial for developing effective prevention
+                and control strategies.  
+                Disease outbreaks can have a devastating impact on the economy,
+                leading to business closures, lost productivity,
+                and increased healthcare costs.  By reporting outbreaks promptly,
+                we can minimize the economic burden and prevent widespread disruption.
+            </p>
+                <img th:src="@{/images/report.jpg}" alt="Image" class="img-responsive"
+                     style="width:100%;border-radius: 20px;">
+
+        </div>
+
+
+        <div class="col-md-6 ms-3 " style="width:48%;padding: 20px;height: 100%;border-radius: 20px; box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5)">
+
+            <p><a th:href="@{/report-outbreak}" class="btn  btn-primary" style="color: white; box-shadow: 3px 3px 3px 3px rgba(100, 100, 100 , 0.5); ">Report Outbreak</a></p>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th> Name </th>
+                    <th> Description </th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${outbreaks.empty}">
+                    <td colspan="2">No reported Outbreaks </td>
+                </tr>
+                <tr th:each="outbreak : ${outbreaks}">
+                    <td><span th:text="${outbreak.name}"> Name </span></td>
+                    <td><span th:text="${outbreak.description}"> Description </span></td>
+                    <td><span th:text="${outbreak.date}"> Date </span></td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+<br>
+<footer  style="height: 40px; background-color: rgba(0, 30, 0, 0.7);
+ display: flex;
+  justify-content: center;
+  align-items: center;">
+    <p style="color: white;margin-top: 20px;">&copy; waw organics 2025</p>
+</footer>
+</body>
+</html>

@@ -1,223 +1,113 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House Committee on Agriculture</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+    <title>Waw.org</title>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
 
-        .header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 5px 0;
-            text-align: center;
-        }
-
-        .header a {
-            color: yellow;
-            text-decoration: none;
-        }
-
-        .container-fluid {
-            padding: 0;
-        }
-
-        .navbar {
-            background-color: #f8f8f8;
-            border: none;
-            margin-bottom: 0;
-        }
-
-        .navbar-brand {
-            padding: 10px 20px;
-        }
-
-        .navbar-brand img {
-            height: 40px;
-            display: inline-block;
-            margin-right: 10px;
-            margin-bottom: 10px;
-        }
-
-        .navbar-nav {
-            margin: 10px;
-        }
-
-        .navbar-nav>li>a {
-            padding: 15px 20px;
-            color: #333;
-        }
-
-        .jumbotron {
-            background-color: white;
-            text-align: center;
-            padding: 80px 0;
-        }
-
-        .jumbotron h1 {
-            font-size: 3em;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .jumbotron .btn-primary {
-            background-color: #4CAF50;
-            border-color: #4CAF50;
-            color: white;
-            padding: 10px 25px;
-            font-size: 1.2em;
-        }
-
-        .container {
-            max-width: 1200px;
-            padding: 40px 0;
-        }
-
-        .row {
-            display: flex; /* Enable flexbox for the row */
-            flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
-        }
-
-        .col-md-6 {
-            width: 50%; /* Each column takes 50% width on medium screens and up */
-            padding: 0 15px; /* Add some padding around the columns */
-            box-sizing: border-box; /* Include padding in the element's total width and height */
-        }
-
-        .image-container {
-            position: relative;
-        }
-
-        .date-block {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background-color: #555;
-            color: white;
-            padding: 10px 15px;
-            text-align: center;
-        }
-
-        .month {
-            font-size: 1.2em;
-        }
-
-        .day {
-            font-size: 2em;
-            font-weight: bold;
-        }
-
-        .text-block {
-            margin-bottom: 20px;
-        }
-
-        .text-block h3 {
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .text-block p {
-            color: #777;
-            font-size: 0.9em;
-        }
-
-        .footer {
-            background-color: #f0f0f0;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
-        /* Responsive adjustments (example) */
-        @media (max-width: 768px) {
-            .col-md-6 {
-                width: 100%; /* Stack columns vertically on smaller screens */
-                margin-bottom: 20px;
-            }
-        }
-    </style>
 </head>
 
-<body>
+<body style="background-color: rgba(0, 30, 0, 0.5);">
 
-<div class="header">
-    outbreak report <a href="#">CLICK HERE</a>
-</div>
 
-<nav class="navbar">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                <img th:src="@{images/logo.png}" style="border-radius: 20px; width: 100px; height: 55px; margin-bottom: 10px;" alt="Logo">
-            </a>
+
+<nav class=" animate__animated animate__backInDown navbar-dark  navbar  navbar-expand-lg" style="background-color: rgba(0, 30, 0, 0.5);"  >
+
+    <div class="collapse navbar-collapse" id="navbarText">
+        <a href="#">
+            <img th:src="@{images/logo.png}" style="border-radius: 20px; width: 100px; height: 55px; margin: 10px;" alt="Logo"/>
+        </a>
+            <ul class="navbar-nav" style="margin: left;">
+                <li  class="nav-item">
+
+                </li>
+                <li  class="nav-item"><a  class="nav-link active" href="/index">Home</a></li>
+                <li  class="nav-item"><a  class="nav-link" href="/market">Market</a></li>
+                <li  class="nav-item"><a  class="nav-link" href="/research">Research</a></li>
+                <li  class="nav-item"><a  class="nav-link" href="/get-outbreaks">Outbreaks</a></li>
+                <li  class="nav-item"><a  class="nav-link" href="/about-us">About</a></li>
+                <li  class="nav-item"><a  class="nav-link" href="/login">Login</a></li>
+            </ul>
         </div>
-        <ul class="nav navbar-nav">
-            <li><a href="/about">About</a></li>
-            <li><a href="/news">News</a></li>
-            <li><a href="/Farms">Market</a></li>
-            <li><a href="/Market">Research</a></li>
-            <li><a href="/Login">Login</a></li>
-        </ul>
-    </div>
 </nav>
 
-<div class="jumbotron" style="position: relative; overflow: hidden; height: 400px; /* Adjust height as needed */">
-    <video autoplay muted loop style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
-        <source src="https://youtu.be/gzcKzoeqxNo" type="video/mp4">
+<div class="jumbotron" style=" overflow: hidden; height: 400px;background-color: rgba(0, 30, 0, 0.5); /* Adjust height as needed */">
+    <video autoplay muted loop style=" margin: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+        <source th:src="@{/videos/home.mp4}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <div style="position: relative; z-index: 1; text-align: center; color: white; padding: 50px 0;">
-        <h1>Organic Farming Remedies</h1>
-        <p><a class="btn btn-primary btn-lg" href="#">GET STARTED</a></p>
+    <div style="position: relative;height: 400px; z-index: 1; text-align: center; color: white; padding: 50px 0;">
+        <br>
+        <br>
+        <h1  style="drop-shadow: -5px 5px rgba(0, 0, 0, 0.5);">Organic Farming, Remedies and Artificial Intelligence</h1>
+        <p><a class="btn  btn-lg" style=" color:white;font:poppins; box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5); background-color: rgba(60,80,0, 0.8)" th:href="@{/get-started}">GET STARTED</a></p>
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
+<div style="background-color: white;padding: 50px;padding-top: 20px;box-shadow: 0px 0px 50px rgba(0, 0, 0 , 0.8)">
+    <h1 style="color: rgba(0, 30, 0, 0.7);">Sustainable Farming</h1>
+    <div class="row mt-1">
         <div class="col-md-6">
             <div class="image-container">
-                <div class="date-block">
-                    <span class="month">FEB</span><br>
-                    <span class="day">13</span>
-                </div>
-                <img src="path/to/your/image2.jpg" alt="Image" class="img-responsive" style="width: 100%; height: auto;">
+                <img th:src="@{/images/organic-farming.jpg}" alt="Image" class="img-responsive" style="width: 100%; height: auto;border-radius: 20px;">
             </div>
         </div>
         <div class="col-md-6">
+            <a class="text-decoration-none" style="color: rgba(0, 30, 0, 0.7);" th:href="@{/documents/BIOPESTICIDES.pdf}">
+
+
             <div class="text-block">
-                <h3>OPENING STATEMENT: <br> "EXAMINING THE ECONOMIC CRISIS IN FARM COUNTRY"</h3>
-                <p>FEB 11, 2025 | OPENING STATEMENTS</p>
+                <h3  > BIOPESTICIDES: A SUSTAINABLE APPROACH FOR INSECT PEST MANAGEMENT</h3>
+                <p>20 July 2022| Publish Date</p>
             </div>
+            </a>
+                <a class="text-decoration-none" style="color: rgba(0, 30, 0, 0.7);" th:href="@{/documents/Effect.pdf}"    >
             <div class="text-block">
-                <h3>THOMPSON OPENING STATEMENT DURING 119TH ORGANIZATIONAL MEETING</h3>
-                <p>JAN 23, 2025 | OPENING STATEMENTS</p>
+                <h3  style="text-transform:uppercase;">A meta-analysis of the effect of organic and mineral fertilizers on soil microbial diversity</h3>
+                <p>October 8, 2020 | Publish Date</p>
             </div>
+                </a>
+            <a class="text-decoration-none" style="color: rgba(0, 30, 0, 0.7);" th:href="@{/documents/Irenepaper.pdf}"    >
+
             <div class="text-block">
-                <h3>CHAIRMAN THOMPSON ANNOUNCES AGRICULTURE COMMITTEE ROSTER FOR 119TH CONGRESS</h3>
-                <p>DEC 16, 2024 | PRESS RELEASES</p>
+                <h3 style="text-transform:uppercase;">Impact of Organic Farming on soil fertility and crop productivity</h3>
+                <p>© 2019 JETIR January 2019, Volume 6, Issue 1</p>
             </div>
-            <div class="text-block">
-                <h3>CHAIRMAN THOMPSON STATEMENT ON <br> CONFIRMATION OF BROOKE ROLLINS TO LEAD AGRICULTURE DEPARTMENT</h3>
-                <p>DEC 16, 2024 | PRESS RELEASES</p>
-            </div>
+            </a>
+
         </div>
+    </div>
+    <div class="row ">
+        <a class="text-decoration-none " style="color: rgba(0, 30, 0, 0.7);" th:href="@{/documents/biologicalcontrol.pdf}"    >
+
+            <div class="text-block">
+                <h3  style="text-transform:uppercase;" >Biological control a sustainable approach for plant diseases management: A review</h3>
+                <p>DEC 16, 2024 | PRESS RELEASES</p>
+            </div>
+        </a>
+        <a class="text-decoration-none" style="color: rgba(0, 30, 0, 0.7);" th:href="@{/documents/horticulture.pdf}"    >
+
+            <div class="text-block">
+                <h3  style="text-transform:uppercase;" >
+                    A Review on Biocontrol Agents as Sustainable Approach for Crop Disease Management: Applications, Production,
+                    and Future Perspectives
+                </h3><p>DEC 16, 2024 | PRESS RELEASES</p>
+            </div>
+        </a>
     </div>
 </div>
 
-<footer class="footer">
-    <p>&copy; 2024 House Committee on Agriculture</p>
+
+<footer  style="height: 40px; background-color: rgba(0, 30, 0, 0.7);
+ display: flex;
+  justify-content: center;
+  align-items: center;">
+    <p style="color: white;margin-top: 20px;">&copy; waw organics 2025</p>
 </footer>
+
 
 </body>
 

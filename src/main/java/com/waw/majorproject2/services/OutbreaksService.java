@@ -16,7 +16,22 @@ public class OutbreaksService {
         return outbreaksRepository.findAll();
     }
 
-    public Outbreak reportOutBreak(Outbreak outbreak){
+    public Outbreak reportOutbreak(Outbreak outbreak){
         return outbreaksRepository.save(outbreak);
     }
+
+    public Outbreak updateOutbreak(Outbreak outbreak){
+        return outbreaksRepository.save(outbreak);
+    }
+
+    public Outbreak deleteOutbreak(Outbreak outbreak){
+        outbreaksRepository.delete(outbreak);
+        return outbreak;
+    }
+
+    public Long deleteOutbreak(String outbreakId){
+        outbreaksRepository.deleteById(Long.parseLong(outbreakId));
+        return Long.parseLong(outbreakId);
+    }
+
 }

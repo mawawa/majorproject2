@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Outbreak Reporting Dashboard</title>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+
+    <style>
+
+
+        .active-b{
+            background-color: rgba(0,100,0,0.7);
+            color: white;
+        }
+
+        .sidebar {
+          width: 250px;
+          height: calc(100vh - 50px);
+          position: fixed;
+          left: 0;
+          background-color: white;
+          padding: 20px;
+          border-radius: 20px;
+        }
+        .content {
+          margin-left: 250px;
+        }
+
+    </style>
+</head>
+<body >
+
+<nav class=" animate__animated animate__backInDown navbar-dark  navbar  navbar-expand-lg"
+     style="background-color: rgba(0, 30, 0, 0.5);">
+
+    <div class="collapse navbar-collapse" id="navbarText">
+        <video muted
+               style=" margin: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+            <source th:src="@{/videos/home.mp4}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <a href="#">
+            <img th:src="@{images/logo.png}" style="border-radius: 20px; width: 100px; height: 55px; margin: 10px;"
+                 alt="Logo"/>
+        </a>
+        <ul class="navbar-nav" style="margin: left;">
+            <li class="nav-item">
+
+            </li>
+            <li class="nav-item"><a class="nav-link active" href="/index">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/market">Market</a></li>
+            <li class="nav-item"><a class="nav-link" href="/research">Research</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about-us">About</a></li>
+        </ul>
+    </div>
+    <a class="btn btn-danger me-2" style="width: 150px;" href="/login">logout</a>
+
+</nav>
+<div class="d-flex">
+    <nav class="sidebar">
+        <h4 style="margin-left: 5px"><span th:text="${loggedInUser.firstName}"></span> <span
+                th:text="${loggedInUser.LastName}"></span></h4>
+        <p style="margin: 5px;color: grey;" th:text="${loggedInUser.emailAddress}"></p>
+        <p style="margin: 5px; color: grey;" th:text="${loggedInUser.role}"></p>
+        <ul class="navbar-nav flex-column mb-aut mt-2">
+            <li class="nav-item  mb-3 "
+                style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7); padding-left: 20px ; border-radius: 10px;">
+
+                <a class="nav-link" th:href="@{/admin-dashboard}">
+                    <img th:src="@{/images/dashboard.png}" alt="Icon" width="24px" height="24px"
+                         style="padding-bottom: 3px; margin-right: 20px"/>
+                    Dashboard
+                </a></li>
+
+            <li class="nav-item mb-3"
+                style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7); padding-left: 20px ; border-radius: 10px;"><a
+                    class="nav-link" href="#">
+                <img th:src="@{/images/crop.png}" alt="Icon" width="24px" height="24px"
+                     style="padding-bottom: 3px;margin-right: 20px"/>
+                Farms
+            </a></li>
+
+            <li class="nav-item mb-3"
+                style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7); padding-left: 20px ; border-radius: 10px; "><a
+                    class="nav-link" href="#">
+                <img th:src="@{/images/outbreaks.png}" alt="Icon" width="20px" height="20px"
+                     style="padding-bottom: 3px; margin-right: 20px"/>
+                Outbreaks
+            </a></li>
+
+            <li class="nav-item mb-3"
+                style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7); padding-left: 20px ; border-radius: 10px;"><a
+                    class="nav-link" href="#">
+                <img th:src="@{/images/remedy.png}" alt="Icon" width="24px" height="24px"
+                     style="padding-bottom: 3px; margin-right: 20px;"/>
+                Remedies
+            </a></li>
+
+            <li class="nav-item mb-3"
+                style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7); padding-left: 20px ; border-radius: 10px;"><a
+                    class="nav-link" href="#">
+                <img th:src="@{/images/tips.png}" alt="Icon" width="24px" height="24px"
+                     style="padding-bottom: 3px; margin-right: 20px;"/>
+                Nokthula AI
+            </a></li>
+
+            <li class="nav-item mb-3"
+                style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7); padding-left: 20px ; border-radius: 10px;"><a
+                    class="nav-link" href="#">
+                <img th:src="@{/images/users.png}" alt="Icon" width="24px" height="24px"
+                     style="padding-bottom: 3px; margin-right: 20px;"/>
+                Waw Users
+            </a></li>
+
+            <li class="nav-item mb-3"
+                style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7); padding-left: 20px ; border-radius: 10px;"><a
+                    class="nav-link" href="#">
+                <img th:src="@{/images/profile.png}" alt="Icon" width="24px" height="24px" style="padding-bottom: 3px; margin-right: 20px;" />
+                My Profile
+            </a></li>
+
+        </ul>
+    </nav>
+</div>
+
+
+<div class="content p-2" style="background-color: white;padding: 50px;padding-top: 20px;">
+    <h1 style="color: rgba(0, 30, 0, 0.7);">Sustainable Farming</h1>
+    <div class="row mt-1">
+        <div class="col-md-6">
+            <div class="image-container">
+                <img th:src="@{/images/organic-farming.jpg}" alt="Image" class="img-responsive" style="width: 100%; height: auto;border-radius: 20px;">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <a class="text-decoration-none" style="color: rgba(0, 30, 0, 0.7);" th:href="@{/documents/BIOPESTICIDES.pdf}">
+
+
+                <div class="text-block">
+                    <h3  > BIOPESTICIDES: A SUSTAINABLE APPROACH FOR INSECT PEST MANAGEMENT</h3>
+                    <p>20 July 2022| Publish Date</p>
+                </div>
+            </a>
+            <a class="text-decoration-none" style="color: rgba(0, 30, 0, 0.7);" th:href="@{/documents/Effect.pdf}"    >
+                <div class="text-block">
+                    <h3  style="text-transform:uppercase;">A meta-analysis of the effect of organic and mineral fertilizers on soil microbial diversity</h3>
+                    <p>October 8, 2020 | Publish Date</p>
+                </div>
+            </a>
+            <a class="text-decoration-none" style="color: rgba(0, 30, 0, 0.7);" th:href="@{/documents/Irenepaper.pdf}"    >
+
+                <div class="text-block">
+                    <h3 style="text-transform:uppercase;">Impact of Organic Farming on soil fertility and crop productivity</h3>
+                    <p>© 2019 JETIR January 2019, Volume 6, Issue 1</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+    <div class="row ">
+        <a class="text-decoration-none " style="color: rgba(0, 30, 0, 0.7);" th:href="@{/documents/biologicalcontrol.pdf}"    >
+
+            <div class="text-block">
+                <h3  style="text-transform:uppercase;" >Biological control a sustainable approach for plant diseases management: A review</h3>
+                <p>DEC 16, 2024 | PRESS RELEASES</p>
+            </div>
+        </a>
+        <a class="text-decoration-none" style="color: rgba(0, 30, 0, 0.7);" th:href="@{/documents/horticulture.pdf}"    >
+
+            <div class="text-block">
+                <h3  style="text-transform:uppercase;" >
+                    A Review on Biocontrol Agents as Sustainable Approach for Crop Disease Management: Applications, Production,
+                    and Future Perspectives
+                </h3><p>DEC 16, 2024 | PRESS RELEASES</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+
+
+<footer style="height: 40px; background-color: rgba(0, 30, 0, 0.7);
+ display: flex;
+ position: absolute;
+ width: 100%;
+ bottom: 0;
+  justify-content: center;
+  align-items: center;">
+    <p style="color: white;margin-top: 20px;">&copy; waw organics 2025</p>
+</footer>
+</body>
+
+</html>

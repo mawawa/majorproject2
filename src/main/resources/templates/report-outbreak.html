@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outbreak Report</title>
+
+    <style>
+        .banner {
+            background-color: #f0f0f0; /* Light gray background */
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px; /* Space below the banner */
+            border-bottom: 1px solid #ddd; /* Add a subtle bottom border */
+            border-radius: 20px;
+        }
+
+        .banner h2 {
+            color: #333; /* Darker heading color */
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+             color: #666; /* Slightly lighter text color */
+        }
+
+
+        .disclaimer {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 15px;
+            text-align: justify; /* Justify the text */
+            hyphens: auto; /* Enable hyphenation for better justification */
+        }
+        /* All styles from the homepage */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 0;
+            text-align: center;
+        }
+
+        .header a {
+            color: yellow;
+            text-decoration: none;
+        }
+
+        .container-fluid {
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #f8f8f8;
+            border: none;
+            margin-bottom: 0;
+        }
+
+        .navbar-brand {
+            padding: 10px 20px;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .navbar-nav {
+            margin: 0;
+        }
+
+        .navbar-nav>li>a {
+            padding: 15px 20px;
+            color: #333;
+        }
+
+        .jumbotron {
+            background-color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .jumbotron h1 {
+            font-size: 3em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .jumbotron .btn-primary {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+            color: white;
+            padding: 10px 25px;
+            font-size: 1.2em;
+        }
+
+        .container {
+            max-width: 1200px;
+            padding: 40px 0;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col-md-6 {
+            width: 50%;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        .image-container {
+            position: relative;
+            top: 110px;
+
+
+        }
+
+        .date-block {
+            position: absolute;
+            top: -110px;
+            left: 20px;
+            right: 20px;
+            background-color: #555;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .month {
+            font-size: 1.2em;
+        }
+
+        .day {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .text-block {
+            margin-bottom: 20px;
+        }
+
+        .text-block h3 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .text-block p {
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        .footer {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* About Us Specific Styles (These override or add to the homepage styles) */
+        .about-section {
+            padding: 60px 0;
+        }
+
+        .about-section h2 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .about-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .team-member {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .team-member h3 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .team-member p {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .team-member {
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Featured Image Styles */
+        .featured-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 40px;
+        }
+
+        /* Styling for the Outbreak Report Form */
+        form {
+            width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        /* Style the container for the form */
+        .form-container {
+            padding: 40px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    outbreak report <a href="/get-outbreaks">CLICK HERE</a>
+</div>
+
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img th:src="@{images/logo.png}"
+                     style="border-radius: 20px; width: auto; height: 100%; margin-bottom: 10px;" alt="Logo">
+            </a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/index">Home</a></li>
+            <li><a href="/market">Market</a></li>
+            <li><a href="/research">Research</a></li>
+            <li><a href="/get-outbreaks">Outbreaks</a></li>
+            <li><a href="/about-us">About</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container content-area">
+    <div class="row">
+        <div class="col-md-6 image-column">
+            <div class="image-container">
+                <div class="date-block">
+                    <span class="month">
+                        Public health agencies rely on accurate and timely data to
+                        make informed decisions about resource allocation, interventions,
+                        and public health policies.  Reporting outbreaks contributes to a
+                        comprehensive surveillance system that tracks disease trends and helps
+                        authorities understand the overall health of the population.
+                        This information is crucial for developing effective prevention
+                        and control strategies.  
+
+                        Disease outbreaks can have a devastating impact on the economy,
+                        leading to business closures, lost productivity,
+                        and increased healthcare costs.  By reporting outbreaks promptly,
+                        we can minimize the economic burden and prevent widespread disruption.
+
+
+</span><br>
+                    <span class="day">Outbreaks</span>
+                </div>
+                <img th:src="@{/images/report.jpg}" alt="Image" class="img-responsive"
+                     style=" border-radius: 20px;">
+            </div>
+        </div>
+        <div class="col-md-6  " style="height: 100%;">
+
+
+            <form th:action="@{/submit-report}" th:object="${newOutbreak}" method="post">
+                <div class="banner">
+                    <h2>Report a Suspected Outbreak</h2>
+                    <p>Help us protect our community by reporting any potential disease outbreaks promptly.</p>
+                </div>
+                <br>
+
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required  th:field="*{location}">
+
+                <label for="name">Name:</label>
+                <input  th:field="*{name}" type="text" id="name" name="name" required>
+
+                <label for="description">Description:</label>
+                <textarea th:field="*{description}" id="description" name="description" rows="4" required></textarea>
+
+                <label for="firstName">First Name:</label>
+                <input th:field="*{firstName}" type="text" id="firstName" name="firstName" required>
+
+                <label for="lastName">Last Name:</label>
+                <input th:field="*{lastName}" type="text" id="lastName" name="lastName" required>
+
+                <label for="contactDetails">Contact Details:</label>
+                <input th:field="*{contactDetails}" type="text" id="contactDetails" name="contactDetails" required>
+
+                <label for="date">Date:</label>
+                <input th:field="*{date}" type="date" id="date" name="date" required>
+
+                <br>
+                <br>
+                <p class="disclaimer">
+                    <b>Disclaimer:</b> All information provided in this report will be treated confidentially and used
+                    solely for the purpose of investigating and managing potential disease outbreaks. By submitting this
+                    form, you certify that the information provided is accurate and truthful to the best of your
+                    knowledge.
+                </p>
+                <button type="submit">Submit Report</button>
+            </form>
+        </div>
+        <div>
+            <p>
+
+            </p>
+        </div>
+
+    </div>
+</div>
+<footer class="footer">
+    <p>&copy; 2025 waw organics</p>
+</footer>
