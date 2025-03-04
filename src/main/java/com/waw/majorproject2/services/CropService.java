@@ -27,4 +27,11 @@ public class CropService {
         cropRepository.deleteById(cropId);
         return cropId;
     }
+
+    public Crop findById(Long id) {
+        return cropRepository.findById(id).get();
+
+    }
+
+
 }

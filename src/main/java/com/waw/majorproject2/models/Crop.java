@@ -22,17 +22,39 @@ public class Crop {
     private List<CropDefect> cropDefects;
     private String condition;
 
+    @ManyToMany
+    private List<WawUser> owners;
+
+
     public Crop() {
     }
 
-    public Crop(Long id, String location, String description, String cropName, List<Remedy> remediesUsed, List<CropDefect> cropDefects, String condition) {
+    public Crop(Long id, String location, String description, String cropName, Plot plot, List<Remedy> remediesUsed, List<CropDefect> cropDefects, String condition, List<WawUser> owners) {
         this.id = id;
         this.location = location;
         this.description = description;
         this.cropName = cropName;
+        this.plot = plot;
         this.remediesUsed = remediesUsed;
         this.cropDefects = cropDefects;
         this.condition = condition;
+        this.owners = owners;
+    }
+
+    public Plot getPlot() {
+        return plot;
+    }
+
+    public void setPlot(Plot plot) {
+        this.plot = plot;
+    }
+
+    public List<WawUser> getOwners() {
+        return owners;
+    }
+
+    public void setOwners(List<WawUser> owners) {
+        this.owners = owners;
     }
 
     public String getCondition() {

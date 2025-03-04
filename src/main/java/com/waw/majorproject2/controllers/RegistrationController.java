@@ -1,5 +1,6 @@
 package com.waw.majorproject2.controllers;
 
+import com.waw.majorproject2.models.NokthulaAI;
 import com.waw.majorproject2.models.WawUser;
 import com.waw.majorproject2.services.WawUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class RegistrationController {
     @Autowired
     WawUsersService wawUsersService;
+    @Autowired
+
 
 
     @GetMapping("/wawusers")

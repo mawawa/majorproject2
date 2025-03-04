@@ -1,9 +1,9 @@
 package com.waw.majorproject2.models;
 
 
-import com.waw.majorproject2.services.WawUsersService;
 import jakarta.persistence.*;
 
+import java.sql.Date;
 import java.util.List;
 
 @Entity
@@ -12,25 +12,47 @@ public class Plot {
     @SequenceGenerator(name = "plot_generator", sequenceName = "plot_generator", initialValue = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "plot_generator")
     private Long plotId;
-    @ManyToOne
-    private WawUser owner;
+    @ManyToMany
+    private List<WawUser> owners;
     @ManyToOne
     private Farm farm;
     private double width;
     private double height;
     @OneToMany
     private List<Crop> cropsList;
+    private String name;
+
+
+
 
     public Plot() {
     }
 
-    public Plot(Long plotId, WawUser owner, Farm farm, double width, double height, List<Crop> cropsList) {
+
+    public Plot(Long plotId, List<WawUser> owners, Farm farm, double width, double height, List<Crop> cropsList, String name) {
         this.plotId = plotId;
-        this.owner = owner;
+        this.owners = owners;
         this.farm = farm;
         this.width = width;
         this.height = height;
         this.cropsList = cropsList;
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<WawUser> getOwners() {
+        return owners;
+    }
+
+    public void setOwners(List<WawUser> owners) {
+        this.owners = owners;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Long getPlotId() {
@@ -39,14 +61,6 @@ public class Plot {
 
     public void setPlotId(Long plotId) {
         this.plotId = plotId;
-    }
-
-    public WawUser getOwner() {
-        return owner;
-    }
-
-    public void setOwner(WawUser owner) {
-        this.owner = owner;
     }
 
     public Farm getFarm() {

@@ -7,10 +7,10 @@ public class WawUser{
     @Id
     @SequenceGenerator(name="user_generator", sequenceName = "user_generator", initialValue = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_generator")
-    protected Long Id;
+    protected Long id;
     protected String firstName;
     protected String lastName;
-    protected String Role;
+    protected String role;
     protected String password;
     protected String contactNumber;
     protected String emailAddress;
@@ -20,10 +20,10 @@ public class WawUser{
     }
 
     public WawUser(Long id, String firstName, String lastName, String role, String password, String contactNumber, String emailAddress, boolean isActive) {
-        Id = id;
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        Role = role;
+        this.role = role;
         this.password = password;
         this.contactNumber = contactNumber;
         this.emailAddress = emailAddress;
@@ -39,11 +39,11 @@ public class WawUser{
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -63,11 +63,11 @@ public class WawUser{
     }
 
     public String getRole() {
-        return Role;
+        return role;
     }
 
     public void setRole(String role) {
-        Role = role;
+        this.role = role;
     }
 
     public String getPassword() {
