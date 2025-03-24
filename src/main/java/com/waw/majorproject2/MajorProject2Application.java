@@ -8,6 +8,11 @@ public class MajorProject2Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MajorProject2Application.class, args);
+
+
+
 	}
+
+
 
 }

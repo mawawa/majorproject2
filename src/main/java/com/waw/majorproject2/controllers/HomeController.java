@@ -5,6 +5,7 @@ import com.waw.majorproject2.models.Outbreak;
 import com.waw.majorproject2.models.WawUser;
 import com.waw.majorproject2.services.OutbreaksService;
 import com.waw.majorproject2.services.WawUsersService;
+import io.github.wimdeblauwe.htmx.spring.boot.mvc.HxRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +24,20 @@ public class HomeController {
     WawUsersService wawUsersService;
     @Autowired
     OutbreaksService outbreaksService;
+
+    @RequestMapping("/test")
+    public String test(){
+        System.out.println("hello nano");
+        return "admin/admin-temples::greeting";
+    }
+
+    @RequestMapping("/notifications")
+    public String notifications(Model model){
+        model.addAttribute("name", "Wandile Shongwe");
+        return "admin/admin-temples::notification";
+    }
+
+
     @RequestMapping("/index")
     public ModelAndView home(){
         return new ModelAndView("index.html");

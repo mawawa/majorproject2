@@ -1,6 +1,7 @@
 package com.waw.majorproject2.models;
 
 import jakarta.persistence.*;
+import org.checkerframework.checker.units.qual.Length;
 
 @Entity
 public class TextMessage {
@@ -8,7 +9,11 @@ public class TextMessage {
     @SequenceGenerator( name = "text_generator", initialValue = 1, sequenceName = "text_generator")
     @GeneratedValue(generator = "text_generator", strategy = GenerationType.SEQUENCE)
     private Long textId;
+
+    @Column(length = 2000)
     private String userSaid;
+
+    @Column(length = 2000)
     private String nokthulaSaid;
 
     public TextMessage(Long textId, String userSaid, String nokthulaSaid) {

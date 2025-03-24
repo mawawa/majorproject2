@@ -2,6 +2,8 @@ package com.waw.majorproject2.models;
 
 import jakarta.persistence.*;
 
+import java.awt.*;
+
 @Entity
 public class WawUser{
     @Id
@@ -18,6 +20,8 @@ public class WawUser{
 
     public WawUser() {
     }
+
+
 
     public WawUser(Long id, String firstName, String lastName, String role, String password, String contactNumber, String emailAddress, boolean isActive) {
         this.id = id;

@@ -3,6 +3,7 @@ package com.waw.majorproject2.models;
 
 import jakarta.persistence.*;
 
+import java.sql.Date;
 import java.util.List;
 
 @Entity
@@ -11,7 +12,7 @@ public class Crop {
     @SequenceGenerator(name = "crop_generator", sequenceName = "crop_generator", initialValue = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "crop_generator")
     private Long id;
-    private String location;
+    private int position;
     private String description;
     private String cropName;
     @ManyToOne
@@ -19,26 +20,55 @@ public class Crop {
     @ManyToMany
     private List<Remedy> remediesUsed;
     @ManyToMany
-    private List<CropDefect> cropDefects;
+    private List<Defect> cropDefects;
     private String condition;
+    private Date datePlanted;
+    @Transient
+    private String dateString;
 
     @ManyToMany
     private List<WawUser> owners;
 
 
+
     public Crop() {
     }
 
-    public Crop(Long id, String location, String description, String cropName, Plot plot, List<Remedy> remediesUsed, List<CropDefect> cropDefects, String condition, List<WawUser> owners) {
+    public Crop(Long id, int position, String description, String cropName, Plot plot, List<Remedy> remediesUsed, List<Defect> cropDefects, String condition, Date datePlanted, List<WawUser> owners) {
         this.id = id;
-        this.location = location;
+        this.position = position;
         this.description = description;
         this.cropName = cropName;
         this.plot = plot;
         this.remediesUsed = remediesUsed;
         this.cropDefects = cropDefects;
         this.condition = condition;
+        this.datePlanted = datePlanted;
         this.owners = owners;
+    }
+
+    public String getDateString() {
+        return dateString;
+    }
+
+    public void setDateString(String dateString) {
+        this.dateString = dateString;
+    }
+
+    public Date getDatePlanted() {
+        return datePlanted;
+    }
+
+    public void setDatePlanted(Date datePlanted) {
+        this.datePlanted = datePlanted;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 
     public Plot getPlot() {
@@ -73,14 +103,6 @@ public class Crop {
         this.id = id;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -105,11 +127,11 @@ public class Crop {
         this.remediesUsed = remediesUsed;
     }
 
-    public List<CropDefect> getCropDefects() {
+    public List<Defect> getCropDefects() {
         return cropDefects;
     }
 
-    public void setCropDefects(List<CropDefect> cropDefects) {
+    public void setCropDefects(List<Defect> cropDefects) {
         this.cropDefects = cropDefects;
     }
 }

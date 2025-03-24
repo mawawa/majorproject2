@@ -28,8 +28,10 @@ public class FarmRestController {
     }
 
     @DeleteMapping("/api/farms/{id}")
-    public void deleteFarm(@PathVariable Long id){
+    public ResponseEntity<Farm> deleteFarm(@PathVariable Long id){
+        Farm farm = farmRepository.findById(id).get();
         farmRepository.deleteById(id);
+        return ResponseEntity.ok(farm);
     }
 
     @GetMapping("api/farms/get/{id}")

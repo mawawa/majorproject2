@@ -7,6 +7,8 @@
     <title>Administrator Dashboard</title>
     <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
     <script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{js/htmx.min.js}"></script>
+
 
     <style>
 
@@ -31,8 +33,7 @@
     </style>
 </head>
 <body>
-
-<nav class=" animate__animated animate__backInDown navbar-dark  navbar  navbar-expand-lg"
+<nav class=" animate__animated animate__backInDown navbar-dark  navbar  navbar-expand-lg fixed-top"
      style="background-color: rgba(0, 30, 0, 0.5);">
 
     <div class="collapse navbar-collapse" id="navbarText">
@@ -58,7 +59,7 @@
     <a class="btn btn-danger me-2" style="width: 150px;" href="/login">logout</a>
 
 </nav>
-<div class="d-flex">
+<div class="d-flex" style="margin-top: 100px;">
     <nav class="sidebar">
         <h4 style="margin-left: 5px"><span th:text="${loggedInUser.firstName}"></span> <span
                 th:text="${loggedInUser.LastName}"></span></h4>
@@ -126,21 +127,55 @@
 
 
 <div class="content p-2 ">
-    <!-- Your main content here -->
-    <h1>Admin Dashboard!</h1>
-    <p>This is your main content area.</p>
+
+    <h1>Waw Users</h1>
+    <div class="input-group mb-1 mt-2">
+
+        <form th:action="@{/admin/users/search}" method="post">
+            <input  class="form-control"  type="text" id="search" name="search"  placeholder="search users" required
+                    th:hx-post="@{/admin/users/search}"
+                    hx-target="#users-frag-id"
+                    hx-trigger="keyup changed delay:500ms"
+                    hx-swap="innerHTML"
+            />
+        </form>
+
+    </div>
+
+    <div id="users-frag-id" th:insert="~{admin/admin-temples::users-frag}"></div>
+
+
+    <h1>Farms</h1>
+    <div class="input-group mb-1 mt-2">
+    <form th:action="@{/admin/farms/search}" method="post">
+        <input  class="form-control"  type="text" id="searchfarms" name="search"  placeholder="search farms" required
+                th:hx-post="@{/admin/farms/search}"
+                hx-target="#farms-frag-id"
+                hx-trigger="keyup changed delay:500ms"
+                hx-swap="innerHTML"
+        />
+    </form>
+    </div>
+    <div id="farms-frag-id" th:insert="~{admin/admin-temples::farms-frag}"></div>
+
+    <h1>Crops</h1>
+    <div class="input-group mb-1 mt-2">
+        <form th:action="@{/admin/crops/search}" method="post">
+            <input  class="form-control"  type="text" id="searchcrops" name="search"  placeholder="search crops" required
+                    th:hx-post="@{/admin/crops/search}"
+                    hx-target="#crops-frag-id"
+                    hx-trigger="keyup changed delay:500ms"
+                    hx-swap="innerHTML"
+            />
+        </form>
+    </div>
+    <div id="crops-frag-id" th:insert="~{admin/admin-temples::crops-frag}"></div>
+
+
+
+
 </div>
 
-
-<footer style="height: 40px; background-color: rgba(0, 30, 0, 0.7);
- display: flex;
- position: absolute;
- width: 100%;
- bottom: 0;
-  justify-content: center;
-  align-items: center;">
-    <p style="color: white;margin-top: 20px;">&copy; waw organics 2025</p>
-</footer>
 </body>
 
 </html>

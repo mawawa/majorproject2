@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Temples</title>
+</head>
+<body>
+
+<div th:fragment="greeting-frag" id="greeting" class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <h1>Kunjani</h1>
+    <p>Mine Ngingu nanashongwe</p>
+</div>
+
+<h1>Users template</h1>
+<div id="users-frag-id" th:fragment="users-frag" class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+
+    <table class="table table-striped">
+        <tr>
+            <th>User ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Contact</th>
+            <th>Role</th>
+            <th>Active</th>
+            <th>Action</th>
+
+        </tr>
+        <tr th:each="userw : ${users}">
+            <td th:text="${userw.id}"></td>
+            <td th:text="${userw.firstName}"></td>
+            <td th:text="${userw.lastName}"></td>
+            <td th:text="${userw.contactNumber}"></td>
+            <td th:text="${userw.role}"></td>
+            <td>
+                <input type="checkbox" name="" id="" checked>
+            </td>
+
+
+            <td>
+                <a class="btn btn-primary"
+                   hx-get="/notifications"
+                   hx-target="#notifications"
+                   hx-trigger="click"
+                   hx-swap="outerHTML"
+                >More Info</a>
+                <a class="btn btn-warning"
+                   href="#"
+                   hx-get="/test"
+                   hx-target="#test"
+                   hx-trigger="click"
+                >Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+<h1>Farms Templates</h1>
+<div id="farm-frag-id" th:fragment="farms-frag" class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <table class="table table-striped">
+        <tr>
+            <th>Farm ID</th>
+            <th>Farm name</th>
+            <th>Location</th>
+            <th>action</th>
+
+        </tr>
+        <tr  th:each="farm : ${farms}">
+            <td th:text="${farm.farmId}"></td>
+            <td th:text="${farm.name}"></td>
+            <td th:text="${farm.location}"></td>
+            <td><a class="btn btn-success" href="/moreInfoFarm">Info</a></td>
+        </tr>
+    </table >
+</div>
+
+
+
+<h1>Crop Templates</h1>
+<div id="crop-frag-id" th:fragment="crops-frag" class="animate__animated animate__backInDown container shadow-lg p-3 mb-5 bg-white rounded ">
+    <table>
+        <tr>
+            <th>Crop Name</th>
+            <th>Date Planted</th>
+            <th>Description</th>
+            <th>Condition</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="crop : ${crops}">
+            <td th:text="${crop.cropName}"></td>
+            <td th:text="${crop.datePlanted}"></td>
+            <td th:text="${crop.condition}"></td>
+            <td th:text="${crop.location}"></td>
+            <td >
+                <a class="btn btn-success" href="#">Care take</a>
+                <a  class="btn btn-delete" href="#">Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<h1>Remedies Template</h1>
+
+<h1>Defects Templates</h1>
+</body>
+</html>

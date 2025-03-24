@@ -21,7 +21,7 @@ public class Outbreak {
     private Date date;
 
     @OneToMany
-    private List<CropDefect> plantDefectList;
+    private List<Defect> plantDefectList;
     
     public Outbreak() {
     }

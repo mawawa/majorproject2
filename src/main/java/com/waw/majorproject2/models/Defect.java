@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-public class CropDefect {
+public class Defect {
     @Id
     @SequenceGenerator(name="plant_defect_generator", sequenceName = "plant_defect_generator", initialValue = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "plant_defect_generator")

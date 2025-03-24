@@ -17,12 +17,12 @@ public class Remedy  {
     private String description;
     private String provider;
     @OneToMany
-    private List<CropDefect> plantDefectList;
+    private List<Defect> plantDefectList;
 
     public Remedy() {
     }
 
-    public Remedy(Long id, String name, Date dateRecorded, String description, String provider, List<CropDefect> plantDefectList) {
+    public Remedy(Long id, String name, Date dateRecorded, String description, String provider, List<Defect> plantDefectList) {
         this.id = id;
         this.name = name;
         this.dateRecorded = dateRecorded;
@@ -71,11 +71,11 @@ public class Remedy  {
         this.provider = provider;
     }
 
-    public List<CropDefect> getPlantDefectList() {
+    public List<Defect> getPlantDefectList() {
         return plantDefectList;
     }
 
-    public void setPlantDefectList(List<CropDefect> plantDefectList) {
+    public void setPlantDefectList(List<Defect> plantDefectList) {
         this.plantDefectList = plantDefectList;
     }
 }

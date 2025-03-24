@@ -1,5 +1,6 @@
 package com.waw.majorproject2.controllers;
 
+import com.waw.majorproject2.controllers.admin.AdminController;
 import com.waw.majorproject2.models.WawUser;
 import com.waw.majorproject2.services.WawUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class DashboardController {
     @Autowired
+    AdminController adminController;
+    @Autowired
     WawUsersService wawUsersService;
     @GetMapping("/Dashboard")
     public ModelAndView dashboard(@ModelAttribute WawUser wawUser){
@@ -18,19 +21,17 @@ public class DashboardController {
         this.wawUsersService.setLoggedInUser(wawUser);
         ModelAndView modelAndView;
         switch (wawUsersService.getLoggedInUser().getRole()){
-            case "administrator":
-                modelAndView = new ModelAndView("admin/admin-dashboard");
-                modelAndView.getModel().put("loggedInUser",wawUsersService.getLoggedInUser());
-                return modelAndView;
-            case "farmer":
+            case "Administrator":
+                return adminController.adminDashboard() ;
+            case "Farmer":
                 modelAndView = new ModelAndView("farmer-dashboard.html");
                 modelAndView.getModel().put("loggedInUser",wawUsersService.getLoggedInUser());
                 return modelAndView;
-            case "researcher":
+            case "Researcher":
                 modelAndView = new ModelAndView("researcher-dashboard.html");
                 modelAndView.getModel().put("loggedInUser", wawUsersService.getLoggedInUser());
                 return modelAndView;
-            case "officer":
+            case "Officer":
                 modelAndView = new ModelAndView("officer-dashboard.html");
                 modelAndView.getModel().put("loggedInUser", wawUsersService.getLoggedInUser());
                 return modelAndView;
