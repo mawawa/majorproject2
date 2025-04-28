@@ -10,6 +10,8 @@ import java.util.List;
 
 @Service
 public class CropService {
+
+
     @Autowired
     CropRepository cropRepository;
     public List<Crop> getAllCrops(){
@@ -31,6 +33,11 @@ public class CropService {
     public Crop findById(Long id) {
         return cropRepository.findById(id).get();
 
+    }
+
+
+    public Crop getCrop(Long id) {
+       return cropRepository.findById(id).get();
     }
 
 

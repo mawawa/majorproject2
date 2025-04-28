@@ -13,22 +13,28 @@ public class Remedy  {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "remedy_generator")
     private Long id;
     private String name;
-    private Date dateRecorded;
     private String description;
-    private String provider;
+    private String application;
     @OneToMany
     private List<Defect> plantDefectList;
 
     public Remedy() {
     }
 
-    public Remedy(Long id, String name, Date dateRecorded, String description, String provider, List<Defect> plantDefectList) {
+    public Remedy(Long id, String name, String description, String application, List<Defect> plantDefectList) {
         this.id = id;
         this.name = name;
-        this.dateRecorded = dateRecorded;
         this.description = description;
-        this.provider = provider;
+        this.application = application;
         this.plantDefectList = plantDefectList;
+    }
+
+    public String getApplication() {
+        return application;
+    }
+
+    public void setApplication(String application) {
+        this.application = application;
     }
 
     public Long getId() {
@@ -47,13 +53,6 @@ public class Remedy  {
         this.name = name;
     }
 
-    public Date getDateRecorded() {
-        return dateRecorded;
-    }
-
-    public void setDateRecorded(Date dateRecorded) {
-        this.dateRecorded = dateRecorded;
-    }
 
     public String getDescription() {
         return description;
@@ -61,14 +60,6 @@ public class Remedy  {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getProvider() {
-        return provider;
-    }
-
-    public void setProvider(String provider) {
-        this.provider = provider;
     }
 
     public List<Defect> getPlantDefectList() {

@@ -26,6 +26,7 @@ public class Crop {
     @Transient
     private String dateString;
 
+
     @ManyToMany
     private List<WawUser> owners;
 
@@ -34,7 +35,7 @@ public class Crop {
     public Crop() {
     }
 
-    public Crop(Long id, int position, String description, String cropName, Plot plot, List<Remedy> remediesUsed, List<Defect> cropDefects, String condition, Date datePlanted, List<WawUser> owners) {
+    public Crop(Long id, int position, String description, String cropName, Plot plot, List<Remedy> remediesUsed, List<Defect> cropDefects, String condition, Date datePlanted, String dateString, List<WawUser> owners) {
         this.id = id;
         this.position = position;
         this.description = description;
@@ -44,6 +45,17 @@ public class Crop {
         this.cropDefects = cropDefects;
         this.condition = condition;
         this.datePlanted = datePlanted;
+        this.dateString = dateString;
+        this.owners = owners;
+
+    }
+
+    public List<WawUser> getOwners() {
+        return owners;
+    }
+
+
+    public void setOwners(List<WawUser> owners) {
         this.owners = owners;
     }
 
@@ -77,14 +89,6 @@ public class Crop {
 
     public void setPlot(Plot plot) {
         this.plot = plot;
-    }
-
-    public List<WawUser> getOwners() {
-        return owners;
-    }
-
-    public void setOwners(List<WawUser> owners) {
-        this.owners = owners;
     }
 
     public String getCondition() {
@@ -134,4 +138,6 @@ public class Crop {
     public void setCropDefects(List<Defect> cropDefects) {
         this.cropDefects = cropDefects;
     }
+
+
 }

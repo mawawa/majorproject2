@@ -44,6 +44,10 @@ public class NokthulaRestController {
             if(nokthulaAI.getOwner().getId().equals(id)){
                 this.nokthulaAI = nokthulaAI;
                 //get latest
+                if(nokthulaAI.getThread().isEmpty() )
+                    return ResponseEntity.ok(nokthulaAI);
+                if(nokthulaAI.getThread().size() <13)
+                    return ResponseEntity.ok(nokthulaAI);
                 nokthulaAI.setThread(nokthulaAI.getThread().subList(nokthulaAI.getThread().size()-13,nokthulaAI.getThread().size()));
                 return ResponseEntity.ok(nokthulaAI);
             }

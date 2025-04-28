@@ -3,7 +3,6 @@ package com.waw.majorproject2.models;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
 import java.util.List;
 
 @Entity
@@ -18,11 +17,8 @@ public class Plot {
     private Farm farm;
     private double width;
     private double height;
-    @OneToMany
-    private List<Crop> cropsList;
+
     private String name;
-
-
 
 
     public Plot() {
@@ -35,9 +31,11 @@ public class Plot {
         this.farm = farm;
         this.width = width;
         this.height = height;
-        this.cropsList = cropsList;
         this.name = name;
     }
+
+
+
 
     public String getName() {
         return name;
@@ -87,11 +85,5 @@ public class Plot {
         this.height = height;
     }
 
-    public List<Crop> getCropsList() {
-        return cropsList;
-    }
 
-    public void setCropsList(List<Crop> cropsList) {
-        this.cropsList = cropsList;
-    }
 }

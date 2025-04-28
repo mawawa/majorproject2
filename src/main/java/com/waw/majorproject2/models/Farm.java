@@ -1,5 +1,6 @@
 package com.waw.majorproject2.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -20,9 +21,11 @@ public class Farm {
     @ManyToMany
     private List<WawUser> owners;
 
-
     public Farm() {
     }
+
+
+
 
     public Farm(Long farmId, String name, double width, double height, String location, String description, List<Plot> plots, List<WawUser> owners) {
         this.farmId = farmId;

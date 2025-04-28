@@ -36,7 +36,11 @@ public class WawUsersService {
                 }
             }
         }
-        return null;
+        //email of password is incorrect
+        WawUser inCorrectUser = new WawUser();
+        inCorrectUser.setEmailAddress("incorrect");
+        inCorrectUser.setPassword("incorrect");
+        return inCorrectUser;
     }
 
     public void logout(){
