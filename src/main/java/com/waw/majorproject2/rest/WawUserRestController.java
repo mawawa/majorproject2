@@ -6,12 +6,14 @@ import com.waw.majorproject2.repositories.WawUsersRepository;
 import com.waw.majorproject2.services.WawUsersService;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class WawUserRestController {
@@ -19,11 +21,27 @@ public class WawUserRestController {
     WawUsersRepository wawUsersRepository;
     @Autowired
     WawUsersService wawUsersService;
-    @Autowired
 
-    @GetMapping(value = "api/wawusers")
-    public List<WawUser> getWawUser(){
-        return wawUsersRepository.findAll();
+    @DeleteMapping("api/wawusers/delete/{id}")
+    public ResponseEntity<WawUser> deleteWawUserById(@PathVariable  Long id){
+        try {
+            Optional<WawUser> user = wawUsersRepository.findById(id);
+            assert user.isPresent();
+            wawUsersRepository.delete(user.get());
+            return ResponseEntity.ok(user.get());
+
+        }catch (AssertionError a){
+            a.printStackTrace();
+            return ResponseEntity.ok(null);
+        }catch (Exception e ){
+            e.printStackTrace();
+            return ResponseEntity.ok(null);
+        }
+
+    }
+    @GetMapping("api/wawusers")
+    public ResponseEntity<List<WawUser>> getWawUser(){
+        return ResponseEntity.ok(wawUsersRepository.findAll());
     }
 
     @PostMapping("api/wawusers")

@@ -14,7 +14,7 @@ public class FarmImage implements Serializable {
     @Lob
     private String imageData;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.DETACH)
     Farm farm;
 
     public FarmImage() {

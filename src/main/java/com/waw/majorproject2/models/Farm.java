@@ -16,9 +16,9 @@ public class Farm {
     private double height;
     private String location;
     private String description;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.DETACH)
     private List<Plot> plots;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.DETACH)
     private List<WawUser> owners;
 
     public Farm() {

@@ -27,19 +27,19 @@ public class WawUsersService {
     //login the user
     public WawUser login(String email, String password){
         for(WawUser wawUser: wawUsersRepository.findAll()){
-            if(! wawUser.isActive()){
                 if(email.equals(wawUser.getEmailAddress())){
                     if(password.equals(wawUser.getPassword())){
                         this.loggedInUser = wawUser;
                         return wawUser;
                     }
                 }
-            }
+
         }
         //email of password is incorrect
         WawUser inCorrectUser = new WawUser();
         inCorrectUser.setEmailAddress("incorrect");
         inCorrectUser.setPassword("incorrect");
+        inCorrectUser.setActive(true);
         return inCorrectUser;
     }
 

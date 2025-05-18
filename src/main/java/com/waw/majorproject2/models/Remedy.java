@@ -12,30 +12,20 @@ public class Remedy  {
     @SequenceGenerator(name="remedy_generator", sequenceName = "remedy_generator", initialValue = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "remedy_generator")
     private Long id;
-    private String name;
-    private String description;
-    private String application;
-    @OneToMany
-    private List<Defect> plantDefectList;
+    private String nameOfOrganicRemedy;
+    private String descriptionOfOrganicRemedy;
+    private String hotToApply;
+
+    public Remedy(Long id, String nameOfOrganicRemedy, String descriptionOfOrganicRemedy, String hotToApply) {
+        this.id = id;
+        this.nameOfOrganicRemedy = nameOfOrganicRemedy;
+        this.descriptionOfOrganicRemedy = descriptionOfOrganicRemedy;
+        this.hotToApply = hotToApply;
+    }
 
     public Remedy() {
     }
 
-    public Remedy(Long id, String name, String description, String application, List<Defect> plantDefectList) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.application = application;
-        this.plantDefectList = plantDefectList;
-    }
-
-    public String getApplication() {
-        return application;
-    }
-
-    public void setApplication(String application) {
-        this.application = application;
-    }
 
     public Long getId() {
         return id;
@@ -45,28 +35,27 @@ public class Remedy  {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNameOfOrganicRemedy() {
+        return nameOfOrganicRemedy;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameOfOrganicRemedy(String nameOfOrganicRemedy) {
+        this.nameOfOrganicRemedy = nameOfOrganicRemedy;
     }
 
-
-    public String getDescription() {
-        return description;
+    public String getDescriptionOfOrganicRemedy() {
+        return descriptionOfOrganicRemedy;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescriptionOfOrganicRemedy(String descriptionOfOrganicRemedy) {
+        this.descriptionOfOrganicRemedy = descriptionOfOrganicRemedy;
     }
 
-    public List<Defect> getPlantDefectList() {
-        return plantDefectList;
+    public String getHotToApply() {
+        return hotToApply;
     }
 
-    public void setPlantDefectList(List<Defect> plantDefectList) {
-        this.plantDefectList = plantDefectList;
+    public void setHotToApply(String hotToApply) {
+        this.hotToApply = hotToApply;
     }
 }

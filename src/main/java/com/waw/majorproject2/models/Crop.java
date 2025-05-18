@@ -3,7 +3,6 @@ package com.waw.majorproject2.models;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
 import java.util.List;
 
 @Entity
@@ -15,27 +14,21 @@ public class Crop {
     private int position;
     private String description;
     private String cropName;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.DETACH)
     private Plot plot;
     @ManyToMany
     private List<Remedy> remediesUsed;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.DETACH)
     private List<Defect> cropDefects;
     private String condition;
-    private Date datePlanted;
-    @Transient
     private String dateString;
-
-
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.DETACH)
     private List<WawUser> owners;
-
-
 
     public Crop() {
     }
 
-    public Crop(Long id, int position, String description, String cropName, Plot plot, List<Remedy> remediesUsed, List<Defect> cropDefects, String condition, Date datePlanted, String dateString, List<WawUser> owners) {
+    public Crop(Long id, int position, String description, String cropName, Plot plot, List<Remedy> remediesUsed, List<Defect> cropDefects, String condition, String dateString, List<WawUser> owners) {
         this.id = id;
         this.position = position;
         this.description = description;
@@ -44,11 +37,10 @@ public class Crop {
         this.remediesUsed = remediesUsed;
         this.cropDefects = cropDefects;
         this.condition = condition;
-        this.datePlanted = datePlanted;
         this.dateString = dateString;
         this.owners = owners;
-
     }
+
 
     public List<WawUser> getOwners() {
         return owners;
@@ -67,13 +59,6 @@ public class Crop {
         this.dateString = dateString;
     }
 
-    public Date getDatePlanted() {
-        return datePlanted;
-    }
-
-    public void setDatePlanted(Date datePlanted) {
-        this.datePlanted = datePlanted;
-    }
 
     public int getPosition() {
         return position;
@@ -138,6 +123,5 @@ public class Crop {
     public void setCropDefects(List<Defect> cropDefects) {
         this.cropDefects = cropDefects;
     }
-
 
 }

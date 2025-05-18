@@ -1,7 +1,13 @@
 package com.waw.majorproject2.models;
 
 import jakarta.persistence.*;
+import org.apache.tomcat.util.codec.binary.Base64;
 
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 
 @Entity
@@ -14,11 +20,17 @@ public class CropImage implements Serializable {
     @Lob
     private String imageData;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.DETACH)
     Crop crop;
 
     public CropImage() {
     }
+    public  InputStream base64ToInputStream() {
+        byte[] byteArray = Base64.decodeBase64(imageData);
+        InputStream imageInputStream = new ByteArrayInputStream(byteArray);
+        return imageInputStream;
+    }
+
 
 
     public Crop getCrop() {

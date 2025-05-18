@@ -20,7 +20,7 @@ public class Outbreak {
     private String contactDetails;
     private Date date;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.DETACH)
     private List<Defect> plantDefectList;
     
     public Outbreak() {

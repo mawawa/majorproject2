@@ -11,9 +11,9 @@ public class Plot {
     @SequenceGenerator(name = "plot_generator", sequenceName = "plot_generator", initialValue = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "plot_generator")
     private Long plotId;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.DETACH)
     private List<WawUser> owners;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.DETACH)
     private Farm farm;
     private double width;
     private double height;

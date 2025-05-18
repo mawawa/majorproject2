@@ -14,7 +14,7 @@ public class PlotImage implements Serializable {
     @Lob
     private String imageData;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.DETACH)
     Plot plot;
 
     public PlotImage() {

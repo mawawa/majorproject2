@@ -1,7 +1,6 @@
 package com.waw.majorproject2.models;
 
 import jakarta.persistence.*;
-import org.checkerframework.checker.units.qual.Length;
 
 @Entity
 public class TextMessage {

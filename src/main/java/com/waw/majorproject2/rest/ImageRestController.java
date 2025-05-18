@@ -1,18 +1,13 @@
 package com.waw.majorproject2.rest;
 
-import com.google.api.Http;
-import com.waw.majorproject2.models.Crop;
 import com.waw.majorproject2.models.CropImage;
 import com.waw.majorproject2.models.FarmImage;
 import com.waw.majorproject2.models.PlotImage;
 import com.waw.majorproject2.repositories.CropImageRepository;
-import com.waw.majorproject2.repositories.CropRepository;
 import com.waw.majorproject2.repositories.FarmImageRepository;
 import com.waw.majorproject2.repositories.PlotImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

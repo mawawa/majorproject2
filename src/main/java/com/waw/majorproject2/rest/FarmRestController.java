@@ -2,13 +2,19 @@ package com.waw.majorproject2.rest;
 
 
 import com.waw.majorproject2.models.Farm;
+import com.waw.majorproject2.models.FarmOfficerNote;
+import com.waw.majorproject2.models.GovernmentService;
 import com.waw.majorproject2.models.WawUser;
+import com.waw.majorproject2.repositories.FarmOfficerNoteRepository;
 import com.waw.majorproject2.repositories.FarmRepository;
+import com.waw.majorproject2.repositories.GovernmentServiceRepository;
 import com.waw.majorproject2.repositories.WawUsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ListFactoryBean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.annotation.Retention;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -18,12 +24,31 @@ public class FarmRestController {
 
 
     @Autowired
+    GovernmentServiceRepository governmentServiceRepository;
+    @Autowired
+    FarmOfficerNoteRepository farmOfficerNoteRepository;
+    @Autowired
     FarmRepository farmRepository;
     @Autowired
     WawUsersRepository wawUsersRepository;
     @GetMapping("/api/farms")
     public ResponseEntity<List<Farm>> getFarms(){
         return ResponseEntity.ok(farmRepository.findAll());
+    }
+
+    @GetMapping("/api/farms/officer/get_gov_services")
+    public ResponseEntity<List<GovernmentService>> getGovServices(){
+      return ResponseEntity.ok(governmentServiceRepository.findAll());
+    }
+
+    @PostMapping("/api/farms/officer/add_gov_service")
+    public ResponseEntity<GovernmentService> addGovService(@RequestBody GovernmentService service){
+        return ResponseEntity.ok(governmentServiceRepository.save(service));
+    }
+
+    @PostMapping("/api/farms/officer/add_farm_note")
+    ResponseEntity<FarmOfficerNote> addFarmNote(@RequestBody FarmOfficerNote officerNote){
+        return ResponseEntity.ok(farmOfficerNoteRepository.save(officerNote));
     }
 
 

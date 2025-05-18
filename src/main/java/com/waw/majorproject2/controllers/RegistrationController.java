@@ -16,8 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class RegistrationController {
     @Autowired
     WawUsersService wawUsersService;
-    @Autowired
-
 
 
     @GetMapping("/wawusers")
